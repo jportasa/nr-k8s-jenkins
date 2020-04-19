@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  node0:
+    environment:
+    - GOPATH=/repo/app
+    image: golang:1.10
+    command: sleep 999999999
+    volumes:
+     - ./nr-cicd-basic:/repo
+
