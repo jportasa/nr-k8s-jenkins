@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: test-windows
+  name: test-linux
   labels:
-     name: jenkins-windows-test-slave
+     name: jenkins-linux-test-slave
 spec:
   #serviceAccount: jenkins
   containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
-    - name: windows
-      image: mcr.microsoft.com/windows/nanoserver:1809
+    - name: goreleaser
+      image: goreleaser/goreleaser
+      command: ["release"]
       tty: true
   nodeSelector:
-    kubernetes.io/os: "windows"
+    kubernetes.io/os: "linux"
