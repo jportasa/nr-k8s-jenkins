@@ -20,6 +20,7 @@ pipeline {
                         container('goreleaser') {
                             sh """
                                 echo Workspace dir is ${pwd()}
+                                goreleaser release  --rm-dist
                             """
                         }
                     }

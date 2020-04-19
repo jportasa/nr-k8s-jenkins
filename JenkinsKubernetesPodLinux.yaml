@@ -12,8 +12,8 @@ spec:
 #      tty: true
 #      imagePullPolicy: IfNotPresent
     - name: goreleaser
-      image: goreleaser/goreleaser
-      command: ["release"]
+      image: jportasa/goreleaser:2.0
+      command: ["tail", "-f", "/dev/null"]
       tty: true
       imagePullPolicy: Always
     - name: busybox
