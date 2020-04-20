@@ -40,3 +40,44 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+nfpm:
+  # You can change the name of the package.
+  # This is parsed with the Go template engine and the following variables
+  # are available:
+  # - ProjectName
+  # - Tag
+  # - Version (Git tag without `v` prefix)
+  # - Os
+  # - Arch
+  # - Arm (ARM version)
+  # - Env (environment variables)
+  # Default: `{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}`
+  name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+  # Your app's vendor.
+  # Default is empty.
+  vendor: Dustin Hendel
+
+  # Your app's homepage.
+  # Default is empty.
+  homepage: https://github.com/dahendel/docker-machine-cloudstack
+
+  # Your app's maintainer (probably you).
+  # Default is empty.
+  maintainer: Joan Porta <jportacloud@gmail.com>
+
+  # Your app's description.
+  # Default is empty.
+  description: Cloudstack driver for docker-machine
+
+  # Your app's license.
+  # Default is empty.
+  license: Apache 2.0
+
+  # Formats to be generated.
+  formats:
+    - deb
+    - rpm
+
+  # Override default /usr/local/bin destination for binaries
+  bindir: /usr/bin
