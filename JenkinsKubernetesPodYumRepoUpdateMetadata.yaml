@@ -17,7 +17,6 @@ spec:
           mountPropagation: HostToContainer
     - name: s3fs
       image: josh9398/s3fs
-      command: ["tail", "-f", "/dev/null"]
       tty: true
       imagePullPolicy: Always
       securityContext:
