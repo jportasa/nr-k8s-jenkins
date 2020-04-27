@@ -4,8 +4,8 @@ services:
   node0:
     environment:
     - GOPATH=/repo/app
-    image: golang:1.10
+    image: tleyden5iwx/centos-6-python-2.7
     command: sleep 999999999
     volumes:
-     - ./nr-cicd-basic:/repo
+     - ./nr-cicd-basic/aptly:/aptly
 

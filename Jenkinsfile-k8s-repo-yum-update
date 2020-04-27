@@ -1,0 +1,33 @@
+pipeline {
+    agent none
+    stages {
+        stage('Update YUM repo path metadata') {
+            parallel {
+                stage('Release') {
+                    agent {
+                        kubernetes {
+                            label 'jenkins-linux-slave'
+                            yamlFile 'JenkinsKubernetesPodYumRepoUpdateMetadata.yaml'
+                            nodeSelector 'kubernetes.io/os=linux'
+                        }
+                    }
+                    environment {
+                        GITHUB_TOKEN = credentials('jenkins_github_token')
+                        PROJECT = 'create binaries'
+                    }
+                    steps {
+                        // The needed steps to create the binaries
+                        container('repo-rpm-updater') {
+                            sh """
+                                echo Workspace dir is ${pwd()}
+                                df -h
+                                ls -la /data/infrastructure_agent/
+                                createrepo --help
+                            """
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
