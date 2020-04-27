@@ -17,7 +17,7 @@ pipeline {
                     }
                     steps {
                         // The needed steps to create the binaries
-                        container('repo-rpm-updater') {
+                        container('repo-yum-updater') {
                             sh """
                                 sleep 50000000
                                 echo Workspace dir is ${pwd()}
