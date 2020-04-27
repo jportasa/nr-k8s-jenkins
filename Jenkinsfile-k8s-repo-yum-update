@@ -6,7 +6,7 @@ pipeline {
                 stage('Release') {
                     agent {
                         kubernetes {
-                            label 'jenkins-linux-slave'
+                            label 'jenkins-linux-yum-repo-update-slave'
                             yamlFile 'JenkinsKubernetesPodYumRepoUpdateMetadata.yaml'
                             nodeSelector 'kubernetes.io/os=linux'
                         }

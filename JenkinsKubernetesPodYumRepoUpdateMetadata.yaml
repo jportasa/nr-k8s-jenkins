@@ -23,10 +23,10 @@ spec:
       securityContext:
         privileged: true
       env:
-#        - name: AWS_ACCESS_KEY_ID
-#          value: "XXXXXXX"
-#        - name: AWS_SECRET_ACCESS_KEY
-#          value: "XXXXXXX"
+        - name: AWS_ACCESS_KEY_ID
+          value: "AKIA54FIHR7BYCAJPGBE"
+        - name: AWS_SECRET_ACCESS_KEY
+          value: "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"
         - name: S3_BUCKET
           value: "nr-test"
         - name: MNT_POINT
