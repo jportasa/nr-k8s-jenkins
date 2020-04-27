@@ -1,10 +1,10 @@
-FROM centos:latest
+FROM centos:8
 
 RUN yum install -y createrepo && yum clean all
 
 VOLUME /data
 
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
 
-CMD [ "createrepo" ]
+#CMD [ "createrepo" ]
