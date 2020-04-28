@@ -18,12 +18,6 @@ pipeline {
                     steps {
                         // The needed steps to create the binaries
                         container('repo-yum-updater') {
-                            sh """
-                                echo Workspace dir is ${pwd()}
-                                df -h
-                                ls -la /data/infrastructure_agent/
-                                echo Updating YUM repo
-                            """
                         }
                     }
                 }
