@@ -18,6 +18,9 @@ pipeline {
                     steps {
                         // The needed steps to create the binaries
                         container('repo-yum-updater') {
+                            sh """
+                                /updaterepo.sh $REPO_YUM_UPDATE_METADATA_PATH
+                            """
                         }
                     }
                 }
