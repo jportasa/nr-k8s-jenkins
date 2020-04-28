@@ -9,13 +9,9 @@ spec:
     - name: repo-yum-updater
       image: jportasa/repo-yum-updater:1.0
       command: ["tail", "-f", "/dev/null"]
-      #command: ["/updaterepo.sh", "$REPO_YUM_UPDATE_METADATA_PATH"]
       tty: true
       imagePullPolicy: Always
       serviceaccount: s3-full
-      env:
-        - name: REPO_YUM_UPDATE_METADATA_PATH
-          value: "infrastructure_agent/linux/yum/el/8/x86_64/"
       volumeMounts:
         - name: s3-shared
           mountPath: /data/
