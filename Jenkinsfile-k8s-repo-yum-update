@@ -20,7 +20,7 @@ pipeline {
                         container('repo-yum-updater') {
                             sh """
                                 echo Workspace dir is ${pwd()}
-                                echo repo path is ${REPO-YUM-UPDATE-METADATA-PATH}
+                                echo repo path is ${REPO_YUM_UPDATE_METADATA_PATH}
                                 df -h
                                 ls -la /data/infrastructure_agent/
                                 echo Updating YUM repo
