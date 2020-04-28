@@ -8,4 +8,4 @@ VOLUME /data
 COPY updaterepo.sh /updaterepo.sh
 RUN chmod +x /updaterepo.sh
 
-CMD ["bash", "-c", "/updaterepo.sh", "$REPO_YUM_UPDATE_METADATA_PATH"]
+CMD ["/updaterepo.sh", "$REPO_YUM_UPDATE_METADATA_PATH"]
