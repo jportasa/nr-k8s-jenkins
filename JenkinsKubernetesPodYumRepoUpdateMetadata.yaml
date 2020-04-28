@@ -16,16 +16,12 @@ spec:
           mountPath: /data/
           mountPropagation: HostToContainer
     - name: s3fs
-      image: josh9398/s3fs
+      image: jportasa/s3fs:1.0
       tty: true
       imagePullPolicy: Always
       securityContext:
         privileged: true
       env:
-#        - name: AWS_ACCESS_KEY_ID
-#          value: "AKIA54FIHR7BYCAJPGBE"
-#        - name: AWS_SECRET_ACCESS_KEY
-#          value: "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"
         - name: IAM_ROLE
           value: "nr-repo-yum-updater"
         - name: S3_BUCKET
