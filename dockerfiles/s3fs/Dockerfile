@@ -13,8 +13,8 @@ ENV DUMB_INIT_VER 1.2.2
 ENV S3_BUCKET ''
 ENV MNT_POINT /mnt
 ENV S3_ENDPOINT ''
-ENV AWS_ACCESS_KEY_ID ''
-ENV AWS_SECRET_ACCESS_KEY ''
+#ENV AWS_ACCESS_KEY_ID ''
+#ENV AWS_SECRET_ACCESS_KEY ''
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y update --fix-missing && \
     apt-get install -y automake autotools-dev g++ git libcurl4-gnutls-dev wget \
@@ -25,8 +25,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update --fix-missing && \
     wget -O /tmp/dumb-init_${DUMB_INIT_VER}_amd64.deb https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VER}/dumb-init_${DUMB_INIT_VER}_amd64.deb && \
     dpkg -i /tmp/dumb-init_*.deb
 
-RUN echo "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" > /etc/passwd-s3fs && \
-    chmod 0400 /etc/passwd-s3fs
+#RUN echo "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" > /etc/passwd-s3fs && \
+#    chmod 0400 /etc/passwd-s3fs
 
 RUN mkdir -p "$MNT_POINT"
 

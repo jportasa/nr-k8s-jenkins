@@ -11,6 +11,7 @@ spec:
       command: ["tail", "-f", "/dev/null"]
       tty: true
       imagePullPolicy: Always
+      serviceaccount: s3-full
       volumeMounts:
         - name: s3-shared
           mountPath: /data/
@@ -19,11 +20,10 @@ spec:
       image: jportasa/s3fs:1.0
       tty: true
       imagePullPolicy: Always
+      serviceaccount: s3-full
       securityContext:
         privileged: true
       env:
-        - name: IAM_ROLE
-          value: "nr-repo-yum-updater"
         - name: S3_BUCKET
           value: "nr-test"
         - name: MNT_POINT

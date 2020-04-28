@@ -20,6 +20,14 @@ iam:
           labels: {aws-usage: "application"}
         attachPolicyARNs:
           - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+      - metadata:
+          name: s3-full
+          # if no namespace is set, "default" will be used;
+          # the namespace will be created if it doesn't exist already
+          namespace: jenkins
+          labels: {aws-usage: "application"}
+        attachPolicyARNs:
+          - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 nodeGroups:
   - name: mix
     minSize: 1
