@@ -13,7 +13,7 @@ spec:
       imagePullPolicy: Always
       serviceaccount: s3-full
       env:
-        - name: REPO-YUM-UPDATE-METADATA-PATH
+        - name: REPO_YUM_UPDATE_METADATA_PATH
           value: "infrastructure_agent/linux/yum/el/8/x86_64/"
       volumeMounts:
         - name: s3-shared
