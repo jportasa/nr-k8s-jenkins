@@ -23,7 +23,6 @@ pipeline {
                                 df -h
                                 ls -la /data/infrastructure_agent/
                                 echo Updating YUM repo
-                                sleep 50000000
                             """
                         }
                     }
