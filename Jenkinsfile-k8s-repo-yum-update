@@ -12,8 +12,7 @@ pipeline {
                         }
                     }
                     environment {
-                        GITHUB_TOKEN = credentials('jenkins_github_token')
-                        PROJECT = 'create binaries'
+                        REPO_YUM_UPDATE_METADATA_PATH = 'infrastructure_agent/linux/yum/el/8/x86_64/'
                     }
                     steps {
                         // The needed steps to create the binaries
