@@ -1,10 +1,9 @@
 FROM centos:8
 
+ENV REPO_YUM_UPDATE_METADATA_PATH ''
 RUN yum install -y createrepo && yum clean all
 
 VOLUME /data
 
-COPY entrypoint.sh /entrypoint.sh
-#ENTRYPOINT ["/entrypoint.sh"]
-
-#CMD [ "createrepo" ]
+COPY updaterepo.sh /updaterepo.sh
+CMD ["/updaterepo.sh", "$REPO_YUM_UPDATE_METADATA_PATH"]
