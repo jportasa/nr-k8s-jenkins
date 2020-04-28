@@ -8,7 +8,8 @@ spec:
   containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
     - name: repo-yum-updater
       image: jportasa/repo-yum-updater:1.0
-      command: ["/updaterepo.sh", "$REPO_YUM_UPDATE_METADATA_PATH"]
+      command: ["tail", "-f", "/dev/null"]
+      #command: ["/updaterepo.sh", "$REPO_YUM_UPDATE_METADATA_PATH"]
       tty: true
       imagePullPolicy: Always
       serviceaccount: s3-full
